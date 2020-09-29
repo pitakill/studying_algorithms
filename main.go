@@ -11,16 +11,13 @@ func main() {
 }
 
 func runningSum(input []int) []int {
-	output := make([]int, len(input))
-
 	for p := range input {
-		sum := 0
-		for i := 0; i <= p; i++ {
-			sum = sum + input[i]
+		if p == 0 {
+			continue
 		}
 
-		output[p] = sum
+		input[p] += input[p-1]
 	}
 
-	return output
+	return input
 }
