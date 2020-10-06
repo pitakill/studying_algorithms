@@ -5,8 +5,11 @@ import (
 )
 
 func main() {
-	input := []int{2, 7, 11, 15}
-	target := 9
+	var input []int
+	var target int
+
+	input = []int{2, 7, 11, 15}
+	target = 9
 	fmt.Println(twoSum(input, target))
 
 	input = []int{3, 2, 4}
@@ -14,19 +17,17 @@ func main() {
 	fmt.Println(twoSum(input, target))
 }
 
-func twoSum(nums []int, target int) []int {
-	output := make([]int, 2)
+func twoSum(nums []int, target int) (output []int) {
+	m := make(map[int]int)
 
-	for i, v := range nums {
-		for j := i + 1; j < len(nums); j++ {
-			if target-v == nums[j] {
-				output[0] = i
-				output[1] = j
-				continue
-			}
+	for i := range nums {
+		c := target - nums[i]
+		if _, ok := m[c]; ok {
+			output = []int{m[c], i}
+			break
 		}
-		continue
+		m[nums[i]] = i
 	}
 
-	return output
+	return
 }
