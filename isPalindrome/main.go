@@ -22,9 +22,12 @@ func isPalindrome(x int) bool {
 		return false
 	} else {
 		exp := 0
-		if math.Mod(x,10)>0 {
-			x = x/10 - math.Mod(x,10)
-			exp = exp + 1
+		var float64 y
+		y = x
+		for y/10 < 1 {
+			y = y/10 - math.Mod(y,10)
+			exp++
 		}
+		return exp
 	}
 }
