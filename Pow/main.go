@@ -36,8 +36,7 @@ func Pow(x float64, n int) float64 {
 		if n < 0{
 			E = -1
 			n = n*E
-			x = x*Pow(x,n-1)
-			y = 1 / x
+			y = 1 / Pow(x,n)
 	}
 	return y
 }
