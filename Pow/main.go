@@ -21,22 +21,19 @@ func main() {
 	fmt.Println(Pow(x, n))
 }
 
-func Pow(x float64, n int) float64 {
-	var E int
+func myPow(x float64, n int) float64 {
 	var y float64
-	E = 1
 
 	if n == 0 {
 		y = 1
 	}
 	if n > 0{
-		x = x*Pow(x,n-1)
+		x = x*myPow(x,n-1)
 		y = x
 		}
 		if n < 0{
-			E = -1
-			n = n*E
-			y = 1 / Pow(x,n)
+			n = n*(-1)
+			y = 1 / myPow(x,n)
 	}
 	return y
 }
